@@ -28,7 +28,7 @@
     h1 {
       font-size: 2.6em;
       color: #ff4d88;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
 
     p {
@@ -39,7 +39,7 @@
     .buttons {
       margin-top: 30px;
       position: relative;
-      height: 80px;
+      height: 90px;
     }
 
     button {
@@ -55,7 +55,7 @@
     #yesBtn {
       background: #ff4d88;
       color: white;
-      left: 35%;
+      left: 30%;
     }
 
     #yesBtn:hover {
@@ -68,9 +68,9 @@
       left: 55%;
     }
 
-    #message {
+    #finalMessage {
       display: none;
-      margin-top: 25px;
+      margin-top: 30px;
       font-size: 1.25em;
     }
   </style>
@@ -78,7 +78,7 @@
 
 <body>
 
-  <!-- Música (se activa al decir que sí) -->
+  <!-- Música -->
   <iframe
     id="music"
     width="0"
@@ -91,14 +91,14 @@
   <div class="card">
     <h1>Mi chirrisita</h1>
 
-    <p id="question">¿Quieres ser mi San Valentín?</p>
+    <p id="questionText">¿Quieres ser mi San Valentín?</p>
 
-    <div class="buttons">
-      <button id="yesBtn" onclick="sayYes()">Sí</button>
-      <button id="noBtn" onmouseover="moveNo()">No</button>
+    <div class="buttons" id="btns">
+      <button id="yesBtn">Sí</button>
+      <button id="noBtn">No</button>
     </div>
 
-    <p id="message">
+    <p id="finalMessage">
       Este 14 de febrero quiero invitarte a una noche especial,
       porque no hay nadie con quien quiera compartirla más que contigo.
       <br><br>
@@ -107,10 +107,25 @@
   </div>
 
   <script>
-    function sayYes() {
+    // Botón Sí
+    document.getElementById("yesBtn").addEventListener("click", function () {
+
+      // Mostrar mensaje final
+      document.getElementById("finalMessage").style.display = "block";
+
+      // Ocultar pregunta y botones
+      document.getElementById("questionText").style.display = "none";
+      document.getElementById("btns").style.display = "none";
+
       // Activar música
       document.getElementById("music").src =
         "https://www.youtube.com/embed/WJmm32hgtLQ?autoplay=1&loop=1&playlist=WJmm32hgtLQ";
+    });
 
-      // Cambiar texto
-      document.getElementById("question").style.displa
+    // Botón No se mueve
+    document.getElementById("noBtn").addEventListener("mouseover", function () {
+      const x = Math.floor(Math.random() * 300);
+      const y = Math.floor(Math.random() * 60);
+
+      this.style.left = x + "px";
+      this.style.t
