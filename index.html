@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Una cena contigo ❤️</title>
+  <title>San Valentín</title>
 
   <style>
     body {
@@ -20,7 +20,7 @@
       margin: auto;
       background: rgba(255, 255, 255, 0.08);
       border-radius: 25px;
-      padding: 45px;
+      padding: 50px;
       box-shadow: 0px 0px 25px rgba(255, 0, 80, 0.3);
       backdrop-filter: blur(10px);
     }
@@ -28,53 +28,57 @@
     h1 {
       font-size: 2.6em;
       color: #ff4d88;
+      margin-bottom: 15px;
     }
 
     p {
-      font-size: 1.25em;
-      line-height: 1.7;
+      font-size: 1.3em;
+      line-height: 1.6;
     }
 
-    .btn {
-      margin-top: 25px;
+    .buttons {
+      margin-top: 30px;
+      position: relative;
+      height: 80px;
+    }
+
+    button {
       padding: 15px 35px;
       font-size: 1.1em;
       border: none;
       border-radius: 35px;
       cursor: pointer;
+      transition: 0.3s;
+      position: absolute;
+    }
+
+    #yesBtn {
       background: #ff4d88;
       color: white;
-      transition: 0.3s;
+      left: 35%;
     }
 
-    .btn:hover {
+    #yesBtn:hover {
       background: #ff1a66;
-      transform: scale(1.05);
     }
 
-    .heart {
-      font-size: 3.2em;
-      animation: pulse 1.5s infinite;
-      margin: 20px 0;
+    #noBtn {
+      background: white;
+      color: black;
+      left: 55%;
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.35); }
-      100% { transform: scale(1); }
-    }
-
-    footer {
-      margin-top: 35px;
-      font-size: 0.9em;
-      opacity: 0.7;
+    #message {
+      display: none;
+      margin-top: 25px;
+      font-size: 1.25em;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Música (YouTube embed, se activa con click) -->
+  <!-- Música (se activa al decir que sí) -->
   <iframe
     id="music"
     width="0"
@@ -85,15 +89,28 @@
   ></iframe>
 
   <div class="card">
-    <h1>Mi amor… 💕</h1>
+    <h1>Mi chirrisita</h1>
 
-    <div class="heart">❤️</div>
+    <p id="question">¿Quieres ser mi San Valentín?</p>
 
-    <p>
-      Este 14 de febrero quiero invitarte a una noche especial…<br>
+    <div class="buttons">
+      <button id="yesBtn" onclick="sayYes()">Sí</button>
+      <button id="noBtn" onmouseover="moveNo()">No</button>
+    </div>
+
+    <p id="message">
+      Este 14 de febrero quiero invitarte a una noche especial,
       porque no hay nadie con quien quiera compartirla más que contigo.
+      <br><br>
+      Cena en Fogo de Chão.
     </p>
+  </div>
 
-    <p>
-      🌹 Cena en <b>Fogo de Chão</b> 🌹<br>
-      14 de Febrero, contig
+  <script>
+    function sayYes() {
+      // Activar música
+      document.getElementById("music").src =
+        "https://www.youtube.com/embed/WJmm32hgtLQ?autoplay=1&loop=1&playlist=WJmm32hgtLQ";
+
+      // Cambiar texto
+      document.getElementById("question").style.displa
