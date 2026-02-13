@@ -6,6 +6,22 @@
   <title>Una cena contigo ❤️</title>
 
   <style>
+<!-- 🎶 Música romántica con botón -->
+<audio id="music" loop>
+  <source src="Zoé - Arrullo De Estrellas.mp3" type="audio/mpeg">
+</audio>
+
+<button class="btn" onclick="playMusic()">
+  🎶 Toca para poner nuestra canción
+</button>
+
+<script>
+  function playMusic() {
+    const music = document.getElementById("music");
+    music.play();
+  }
+</script>
+    
     body {
       margin: 0;
       font-family: "Georgia", serif;
@@ -108,4 +124,5 @@
 
 </body>
 </html>
+
 
