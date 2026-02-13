@@ -128,6 +128,14 @@
       from { opacity: 0; transform: translateY(18px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* Ocultamos el iframe */
+    #ytPlayer {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border: 0;
+    }
   </style>
 </head>
 
@@ -162,36 +170,26 @@
     </div>
   </div>
 
-  <!-- Audio -->
-  <audio id="music" preload="auto">
-    <source src="cancion.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio.
-  </audio>
+  <!-- YouTube oculto -->
+  <iframe
+    id="ytPlayer"
+    src=""
+    allow="autoplay"
+    allowfullscreen>
+  </iframe>
 
   <script>
     const yesBtn = document.getElementById("yesBtn");
     const noBtn = document.getElementById("noBtn");
-    const music = document.getElementById("music");
+    const ytPlayer = document.getElementById("ytPlayer");
 
     yesBtn.addEventListener("click", function() {
       document.getElementById("question").style.display = "none";
       document.getElementById("btns").style.display = "none";
       document.getElementById("finalMsg").style.display = "block";
 
-      music.volume = 0.6;
-
-      // Forzar reproducción correctamente
-      const playPromise = music.play();
-
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            console.log("Música reproduciéndose");
-          })
-          .catch(error => {
-            console.log("Error al reproducir:", error);
-          });
-      }
+      // Activamos el video con autoplay
+      ytPlayer.src = "https://www.youtube.com/embed/WJmm32hgtLQ?autoplay=1&loop=1&playlist=WJmm32hgtLQ";
     });
 
     noBtn.addEventListener("mouseover", function() {
