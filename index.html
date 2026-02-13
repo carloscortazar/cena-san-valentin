@@ -8,71 +8,138 @@
   <style>
     body {
       margin: 0;
-      font-family: Georgia, serif;
-      background: black;
+      font-family: "Georgia", serif;
+      background: linear-gradient(to bottom, #0f0f0f, #2a001f);
       color: white;
       text-align: center;
-      padding-top: 100px;
+      padding: 60px 20px;
+    }
+
+    .card {
+      max-width: 650px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 30px;
+      padding: 55px;
+      box-shadow: 0px 0px 30px rgba(255, 0, 80, 0.35);
+      backdrop-filter: blur(12px);
+    }
+
+    h1 {
+      font-size: 2.8em;
+      color: #ff4d88;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    .heart {
+      font-size: 3.5em;
+      margin: 25px 0;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.35); }
+      100% { transform: scale(1); }
+    }
+
+    p {
+      font-size: 1.35em;
+      line-height: 1.7;
+      margin: 15px 0;
+    }
+
+    .buttons {
+      margin-top: 35px;
+      position: relative;
+      height: 90px;
     }
 
     button {
-      padding: 15px 40px;
-      font-size: 20px;
+      padding: 15px 45px;
+      font-size: 1.15em;
       border: none;
-      border-radius: 30px;
-      margin: 20px;
+      border-radius: 40px;
       cursor: pointer;
+      transition: 0.3s;
+      position: absolute;
+      font-family: "Georgia", serif;
     }
 
     #yes {
-      background: pink;
+      background: #ff4d88;
+      color: white;
+      left: 28%;
+      box-shadow: 0px 0px 15px rgba(255, 77, 136, 0.6);
+    }
+
+    #yes:hover {
+      background: #ff1a66;
+      transform: scale(1.05);
     }
 
     #no {
-      background: white;
+      background: rgba(255, 255, 255, 0.9);
+      color: black;
+      left: 58%;
     }
 
     #final {
       display: none;
-      margin-top: 40px;
-      font-size: 22px;
+      margin-top: 35px;
+      font-size: 1.3em;
+      animation: fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      margin-top: 35px;
+      font-size: 0.95em;
+      opacity: 0.65;
     }
   </style>
 </head>
 
 <body>
 
-  <h1>Mi chirrisita</h1>
+  <div class="card">
 
-  <p id="pregunta">¿Quieres ser mi San Valentín?</p>
+    <h1>Mi chirrisita</h1>
 
-  <div id="botones">
-    <button id="yes">Sí</button>
-    <button id="no">No</button>
-  </div>
+    <div class="heart">♥</div>
 
-  <div id="final">
-    <p>
-      Este 14 de febrero quiero invitarte a una noche especial.<br><br>
-      Cena en Fogo de Chão.
-    </p>
+    <p id="pregunta">¿Quieres ser mi San Valentín?</p>
+
+    <div class="buttons" id="botones">
+      <button id="yes">Sí</button>
+      <button id="no">No</button>
+    </div>
+
+    <div id="final">
+      <p>
+        Contigo, incluso lo más simple se vuelve especial.
+      </p>
+
+      <p>
+        Este 14 de febrero quiero compartir una noche hermosa contigo.
+      </p>
+
+      <p>
+        Cena en <b>Fogo de Chão</b>.
+      </p>
+
+      <footer>
+        Hecho solo para ti.
+      </footer>
+    </div>
+
   </div>
 
   <script>
     // Botón Sí
-    document.getElementById("yes").onclick = function() {
-      document.getElementById("pregunta").style.display = "none";
-      document.getElementById("botones").style.display = "none";
-      document.getElementById("final").style.display = "block";
-    };
-
-    // Botón No se mueve
-    document.getElementById("no").onmouseover = function() {
-      this.style.position = "absolute";
-      this.style.left = Math.random() * 300 + "px";
-      this.style.top = Math.random() * 300 + "px";
-    };
-  </script>
-
-</body>
-</html>
+    document.getElementById("yes").onclick
