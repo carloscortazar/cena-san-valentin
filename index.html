@@ -19,7 +19,6 @@
       font-family: "Poppins", sans-serif;
     }
 
-    /* Fondo decorado romántico */
     body::before {
       content: "";
       position: fixed;
@@ -54,9 +53,8 @@
       letter-spacing: 1px;
     }
 
-    /* Corazón pequeño elegante */
     .heart {
-      font-size: 2.5em;
+      font-size: 2.4em;
       color: #ff0033;
       margin: 25px 0;
       animation: pulse 1.6s infinite;
@@ -120,6 +118,13 @@
       animation: fadeIn 1.4s ease;
     }
 
+    .fogo {
+      font-family: "Playfair Display", serif;
+      font-size: 1.35em;
+      color: #ff4d88;
+      margin-top: 10px;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(18px); }
       to { opacity: 1; transform: translateY(0); }
@@ -130,12 +135,13 @@
 <body>
 
   <div class="card">
-
     <h1>Mi chirrisita</h1>
 
     <div class="heart">♥</div>
 
-    <p id="question">¿Quieres ser mi San Valentín?</p>
+    <p id="question">
+      <strong>¿Quieres ser mi San Valentín?</strong>
+    </p>
 
     <div class="buttons" id="btns">
       <button id="yesBtn">Sí</button>
@@ -151,24 +157,27 @@
         Este 14 de febrero quiero compartir contigo:
       </p>
 
-      <p>
-        <i>Cena en Fogo de Chão</i>
-      </p>
+      <div class="fogo">
+        Cena en <strong>Fogo de Chão</strong>
+      </div>
     </div>
-
   </div>
 
+  <!-- Audio -->
+  <audio id="music" src="cancion.mp3"></audio>
+
   <script>
-    // Botón Sí muestra mensaje final
     document.getElementById("yesBtn").onclick = function() {
       document.getElementById("question").style.display = "none";
       document.getElementById("btns").style.display = "none";
       document.getElementById("finalMsg").style.display = "block";
+
+      const music = document.getElementById("music");
+      music.volume = 0.6;     // volumen elegante
+      music.play();
     };
 
-    // Botón No se mueve
     document.getElementById("noBtn").onmouseover = function() {
-      this.style.position = "absolute";
       this.style.left = Math.random() * 300 + "px";
       this.style.top = Math.random() * 70 + "px";
     };
