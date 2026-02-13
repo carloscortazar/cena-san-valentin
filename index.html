@@ -128,14 +128,6 @@
       from { opacity: 0; transform: translateY(18px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    /* Ocultamos el iframe */
-    #ytPlayer {
-      position: absolute;
-      width: 0;
-      height: 0;
-      border: 0;
-    }
   </style>
 </head>
 
@@ -170,26 +162,25 @@
     </div>
   </div>
 
-  <!-- YouTube oculto -->
-  <iframe
-    id="ytPlayer"
-    src=""
-    allow="autoplay"
-    allowfullscreen>
-  </iframe>
+  <!-- AUDIO CORRECTO -->
+  <audio id="music" src="musica.mp3.mp3" preload="auto"></audio>
 
   <script>
     const yesBtn = document.getElementById("yesBtn");
     const noBtn = document.getElementById("noBtn");
-    const ytPlayer = document.getElementById("ytPlayer");
+    const music = document.getElementById("music");
 
     yesBtn.addEventListener("click", function() {
       document.getElementById("question").style.display = "none";
       document.getElementById("btns").style.display = "none";
       document.getElementById("finalMsg").style.display = "block";
 
-      // Activamos el video con autoplay
-      ytPlayer.src = "https://www.youtube.com/embed/WJmm32hgtLQ?autoplay=1&loop=1&playlist=WJmm32hgtLQ";
+      music.currentTime = 0;
+      music.volume = 0.8;
+
+      music.play().catch(error => {
+        console.log("Error al reproducir:", error);
+      });
     });
 
     noBtn.addEventListener("mouseover", function() {
