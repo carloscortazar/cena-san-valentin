@@ -5,102 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>San Valentín</title>
 
+  <!-- Fuentes elegantes -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
-      font-family: "Georgia", serif;
-      background: linear-gradient(to bottom, #0f0f0f, #2a001f);
+      background: linear-gradient(to bottom, #0b0b0b, #240015);
       color: white;
       text-align: center;
-      padding: 60px 20px;
+      padding: 80px 20px;
+      overflow: hidden;
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* Fondo decorado romántico */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(255,77,136,0.20) 2px, transparent 3px),
+        radial-gradient(circle, rgba(255,0,60,0.15) 1px, transparent 3px);
+      background-size: 85px 85px;
+      opacity: 0.25;
+      z-index: 0;
     }
 
     .card {
-      max-width: 650px;
+      position: relative;
+      z-index: 2;
+      max-width: 520px;
       margin: auto;
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 30px;
-      padding: 55px;
-      box-shadow: 0px 0px 30px rgba(255, 0, 80, 0.35);
-      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 35px;
+      padding: 60px 50px;
+      box-shadow: 0px 0px 55px rgba(255, 0, 80, 0.35);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     h1 {
-      font-size: 2.8em;
+      font-family: "Playfair Display", serif;
+      font-size: 2.6em;
+      font-weight: 700;
       color: #ff4d88;
       margin-bottom: 15px;
       letter-spacing: 1px;
     }
 
+    /* Corazón pequeño elegante */
     .heart {
-      font-size: 3.5em;
+      font-size: 2.5em;
+      color: #ff0033;
       margin: 25px 0;
-      animation: pulse 1.5s infinite;
+      animation: pulse 1.6s infinite;
+      text-shadow: 0px 0px 18px rgba(255, 0, 60, 0.55);
     }
 
     @keyframes pulse {
       0% { transform: scale(1); }
-      50% { transform: scale(1.35); }
+      50% { transform: scale(1.25); }
       100% { transform: scale(1); }
     }
 
     p {
-      font-size: 1.35em;
+      font-size: 1.15em;
+      font-weight: 300;
       line-height: 1.7;
       margin: 15px 0;
+      opacity: 0.9;
     }
 
     .buttons {
-      margin-top: 35px;
+      margin-top: 40px;
       position: relative;
       height: 90px;
     }
 
     button {
-      padding: 15px 45px;
-      font-size: 1.15em;
+      padding: 14px 45px;
+      font-size: 1.05em;
       border: none;
-      border-radius: 40px;
+      border-radius: 45px;
       cursor: pointer;
       transition: 0.3s;
       position: absolute;
-      font-family: "Georgia", serif;
+      font-family: "Poppins", sans-serif;
+      font-weight: 400;
     }
 
-    #yes {
+    #yesBtn {
       background: #ff4d88;
       color: white;
-      left: 28%;
-      box-shadow: 0px 0px 15px rgba(255, 77, 136, 0.6);
+      left: 22%;
+      box-shadow: 0px 0px 18px rgba(255, 77, 136, 0.55);
     }
 
-    #yes:hover {
+    #yesBtn:hover {
       background: #ff1a66;
-      transform: scale(1.05);
+      transform: scale(1.07);
     }
 
-    #no {
-      background: rgba(255, 255, 255, 0.9);
+    #noBtn {
+      background: rgba(255, 255, 255, 0.92);
       color: black;
       left: 58%;
     }
 
-    #final {
+    #finalMsg {
       display: none;
       margin-top: 35px;
-      font-size: 1.3em;
-      animation: fadeIn 1.2s ease;
+      font-size: 1.15em;
+      animation: fadeIn 1.4s ease;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px); }
+      from { opacity: 0; transform: translateY(18px); }
       to { opacity: 1; transform: translateY(0); }
-    }
-
-    footer {
-      margin-top: 35px;
-      font-size: 0.95em;
-      opacity: 0.65;
     }
   </style>
 </head>
@@ -113,33 +135,44 @@
 
     <div class="heart">♥</div>
 
-    <p id="pregunta">¿Quieres ser mi San Valentín?</p>
+    <p id="question">¿Quieres ser mi San Valentín?</p>
 
-    <div class="buttons" id="botones">
-      <button id="yes">Sí</button>
-      <button id="no">No</button>
+    <div class="buttons" id="btns">
+      <button id="yesBtn">Sí</button>
+      <button id="noBtn">No</button>
     </div>
 
-    <div id="final">
+    <div id="finalMsg">
       <p>
-        Contigo, incluso lo más simple se vuelve especial.
+        Contigo todo se siente más bonito, más tranquilo, más especial.
       </p>
 
       <p>
-        Este 14 de febrero quiero compartir una noche hermosa contigo.
+        Este 14 de febrero quiero compartir contigo:
       </p>
 
       <p>
-        Cena en <b>Fogo de Chão</b>.
+        <i>Cena en Fogo de Chão</i>
       </p>
-
-      <footer>
-        Hecho solo para ti.
-      </footer>
     </div>
 
   </div>
 
   <script>
-    // Botón Sí
-    document.getElementById("yes").onclick
+    // Botón Sí muestra mensaje final
+    document.getElementById("yesBtn").onclick = function() {
+      document.getElementById("question").style.display = "none";
+      document.getElementById("btns").style.display = "none";
+      document.getElementById("finalMsg").style.display = "block";
+    };
+
+    // Botón No se mueve
+    document.getElementById("noBtn").onmouseover = function() {
+      this.style.position = "absolute";
+      this.style.left = Math.random() * 300 + "px";
+      this.style.top = Math.random() * 70 + "px";
+    };
+  </script>
+
+</body>
+</html>
