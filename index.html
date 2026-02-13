@@ -74,6 +74,15 @@
 
 <body>
 
+  <!-- 🎶 Música automática desde YouTube -->
+  <iframe
+    width="0"
+    height="0"
+    src="https://www.youtube.com/embed/WJmm32hgtLQ?autoplay=1&loop=1&playlist=WJmm32hgtLQ"
+    frameborder="0"
+    allow="autoplay"
+  ></iframe>
+
   <div class="card">
     <h1>Mi amor… 💕</h1>
 
@@ -93,32 +102,14 @@
       ¿Aceptas ser mi cita? ✨
     </p>
 
-    <!-- Botón de invitación -->
     <button class="btn" onclick="alert('Sabía que dirías que sí 😭❤️')">
       Sí, obvio 💘
-    </button>
-
-    <!-- 🎶 Botón para activar música -->
-    <button class="btn" onclick="playMusic()">
-      🎶 Toca para poner nuestra canción
     </button>
 
     <footer>
       Hecho con amor solo para ti.
     </footer>
   </div>
-
-  <!-- 🎶 Música -->
-  <audio id="music" loop>
-    <source src="cancion.mp3" type="audio/mpeg">
-  </audio>
-
-  <script>
-    function playMusic() {
-      const music = document.getElementById("music");
-      music.play();
-    }
-  </script>
 
 </body>
 </html>
